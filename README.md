@@ -1,5 +1,7 @@
 # LeetCode Source Code & Notes
 
+leetcode: https://leetcode.com/problemset/all/
+
 [0001_twoSum](note/0001.twoSum.md)
 
 [0015_3sum](note/0015.3Sum.md)
