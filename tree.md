@@ -452,3 +452,142 @@ class Solution {
     }
 }
 ```
+
+## 116. Populating Next Right Pointers in Each Node
+
+https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+
+BFS in java.
+```Java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node next;
+
+    public Node() {}
+
+    public Node(int _val,Node _left,Node _right,Node _next) {
+        val = _val;
+        left = _left;
+        right = _right;
+        next = _next;
+    }
+};
+*/
+class Solution {
+    public Node connect(Node root) {
+        Queue<Node> q = new LinkedList<Node>();
+        q.add(root);
+        q.add(null);
+        while (!q.isEmpty()) {
+            // System.out.println(q);
+            Node head = q.remove();
+            if (head == null) {
+                if (q.size() > 1) {
+                    q.add(null);
+                }
+            } else {
+                head.next = q.peek();
+                if (head.left != null) {
+                    q.add(head.left);
+                    q.add(head.right);
+                }
+            }
+        }
+        return root;
+    }
+}
+```
+
+```python
+# Definition for binary tree with next pointer.
+# class TreeLinkNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+#         self.next = None
+
+class Solution(object):
+    def connect(self, root):
+        """
+        :type root: TreeLinkNode
+        :rtype: nothing
+        """
+        if root == None:
+            return
+        pre = root
+        while pre.left:
+            cur = pre
+            while cur:
+                cur.left.next = cur.right
+                if cur.next:
+                    cur.right.next = cur.next.left
+                cur = cur.next
+            pre = pre.left
+```
+
+
+## 117. Populating Next Right Pointers in Each Node II
+
+https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
+
+```Java
+class Solution {
+    public Node connect(Node root) {
+        if (root == null) {
+            return null;
+        }
+        Queue<Node> q = new LinkedList<Node>();
+        q.add(root);
+        q.add(null);
+        while (!q.isEmpty()) {
+            // System.out.println(q);
+            Node head = q.remove();
+            if (head == null) {
+                if (!q.isEmpty()) {
+                    q.add(null);
+                }
+            } else {
+                head.next = q.peek();
+                if (head.left != null) {
+                    q.add(head.left);
+                }
+                if (head.right != null) {
+                    q.add(head.right);
+                }
+            }
+        }
+        return root;
+    }
+}
+```
+
+
+Another way:
+
+record the previous node in each depth.
+
+```Java
+class Solution {
+    public Node connect(Node root) {
+        List<Node> list = new ArrayList<Node>();
+        helper(list,0,root);
+        return root;
+    }
+
+    public void helper(List<Node> list,int depth,Node root){
+        if(root == null) return;
+        if(list.size() > depth){
+            list.get(depth).next = root;
+            list.remove(depth);
+        }
+        list.add(depth,root);
+        helper(list,depth + 1,root.left);
+        helper(list,depth + 1,root.right);
+    }
+}
+```
