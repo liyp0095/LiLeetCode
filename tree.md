@@ -8,6 +8,8 @@
     - [Solution](#solution)
   - [100. Same Tree](#100-same-tree)
   - [101. Symmetric Tree](#101-symmetric-tree)
+  - [116. Populating Next Right Pointers in Each Node](#116-populating-next-right-pointers-in-each-node)
+  - [117. Populating Next Right Pointers in Each Node II](#117-populating-next-right-pointers-in-each-node-ii)
 <!-- TOC END -->
 
 
