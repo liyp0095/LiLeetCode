@@ -1,3 +1,17 @@
+<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+- [Tree with Java](#tree-with-java)
+  - [94. Binary Tree Inorder Traversal](#94-binary-tree-inorder-traversal)
+  - [95. Unique Binary Search Trees II](#95-unique-binary-search-trees-ii)
+  - [96. Unique Binary Search Trees](#96-unique-binary-search-trees)
+  - [98. Validate Binary Search Tree](#98-validate-binary-search-tree)
+  - [99. Recover Binary Search Tree](#99-recover-binary-search-tree)
+    - [Solution](#solution)
+  - [100. Same Tree](#100-same-tree)
+  - [101. Symmetric Tree](#101-symmetric-tree)
+<!-- TOC END -->
+
+
+
 # Tree with Java
 
 ## 94. Binary Tree Inorder Traversal
@@ -337,6 +351,58 @@ Output: [2,1,4,null,null,3]
 
 - A solution using O(n) space is pretty straight forward.
 - Could you devise a constant space solution?
+
+### Solution
+
+Inorder Traversal solution.
+
+```Java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    TreeNode node = new TreeNode(Integer.MIN_VALUE);
+    TreeNode mis1, mis2;
+
+    public void recoverTree(TreeNode root) {
+        inorderTraversal(root);
+        System.out.println(mis2);
+        swap(mis1, mis2);
+    }
+
+    private void inorderTraversal(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        inorderTraversal(root.left);
+
+        if (node.val > root.val) {
+            if (mis1 == null) {
+                mis1 = node;
+            }
+            if (mis1 != null) {
+                mis2 = root;
+            }
+        }
+        node = root;
+
+        inorderTraversal(root.right);
+    }
+
+    private void swap(TreeNode mis1, TreeNode mis2) {
+        int tmp = mis1.val;
+        mis1.val = mis2.val;
+        mis2.val = tmp;
+    }
+}
+```
 
 
 ## 100. Same Tree
