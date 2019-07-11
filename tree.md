@@ -9,6 +9,11 @@
   - [100. Same Tree](#100-same-tree)
   - [101. Symmetric Tree](#101-symmetric-tree)
   - [102. Binary Tree level Order Traversal (medium)](#102-binary-tree-level-order-traversal-medium)
+    - [Solution](#solution-1)
+  - [103. Binary Tree Zigzag Level Order Traversal (medium)](#103-binary-tree-zigzag-level-order-traversal-medium)
+    - [Solution](#solution-2)
+  - [104. Maximum Depth of Binary Tree (Easy)](#104-maximum-depth-of-binary-tree-easy)
+    - [solution](#solution-3)
   - [116. Populating Next Right Pointers in Each Node](#116-populating-next-right-pointers-in-each-node)
   - [117. Populating Next Right Pointers in Each Node II](#117-populating-next-right-pointers-in-each-node-ii)
 <!-- TOC END -->
@@ -540,6 +545,170 @@ return its level order traversal as:
   [9,20],
   [15,7]
 ]
+```
+
+### Solution
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> rst = new ArrayList<>();
+        List<Integer> levelList = new ArrayList<>();
+
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        q.add(root);
+        q.add(null); //use null as end of level.
+        while (!q.isEmpty()) {
+            // System.out.println(q);
+            TreeNode head = q.remove();
+            if (head == null) {
+                if (!q.isEmpty() && q.peek() != null) {
+                    q.add(null);
+                    rst.add(levelList);
+                    levelList = new ArrayList<>();
+                }
+            } else {
+                levelList.add(head.val);
+                if (head.left != null) {
+                    q.add(head.left);
+                }
+                if (head.right != null) {
+                    q.add(head.right);
+                }
+            }
+        }
+        if (!levelList.isEmpty())
+            rst.add(levelList);
+        return rst;
+    }
+}
+```
+
+## 103. Binary Tree Zigzag Level Order Traversal (medium)
+
+Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
+
+***For example:***
+```
+Given binary tree [3,9,20,null,null,15,7],
+    3
+   / \
+  9  20
+    /  \
+   15   7
+return its zigzag level order traversal as:
+[
+  [3],
+  [20,9],
+  [15,7]
+]
+```
+
+### Solution
+
+```Java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> rst = new ArrayList<>();
+        List<Integer> levelList = new ArrayList<>();
+        boolean isReverse = false;
+
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        q.add(root);
+        q.add(null); //use null as end of level.
+        while (!q.isEmpty()) {
+            // System.out.println(q);
+            TreeNode head = q.remove();
+            if (head == null) {
+                if (!q.isEmpty() && q.peek() != null) {
+                    q.add(null);
+                    if (isReverse) {
+                        Collections.reverse(levelList);
+                    }
+                    isReverse = !isReverse;
+                    rst.add(levelList);
+                    levelList = new ArrayList<>();
+                }
+            } else {
+                levelList.add(head.val);
+                if (head.left != null) {
+                    q.add(head.left);
+                }
+                if (head.right != null) {
+                    q.add(head.right);
+                }
+            }
+        }
+        if (!levelList.isEmpty()) {
+            if (isReverse) {
+                Collections.reverse(levelList);
+            }
+            rst.add(levelList);
+        }
+        return rst;
+    }
+}
+```
+
+## 104. Maximum Depth of Binary Tree (Easy)
+
+Given a binary tree, find its maximum depth.
+
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+Note: A leaf is a node with no children.
+
+**Example:**
+```
+Given binary tree [3,9,20,null,null,15,7],
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+return its depth = 3.
+```
+
+### solution
+
+```Java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+    }
+}
 ```
 
 ## 116. Populating Next Right Pointers in Each Node
