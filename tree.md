@@ -8,6 +8,7 @@
     - [Solution](#solution)
   - [100. Same Tree](#100-same-tree)
   - [101. Symmetric Tree](#101-symmetric-tree)
+  - [102. Binary Tree level Order Traversal (medium)](#102-binary-tree-level-order-traversal-medium)
   - [116. Populating Next Right Pointers in Each Node](#116-populating-next-right-pointers-in-each-node)
   - [117. Populating Next Right Pointers in Each Node II](#117-populating-next-right-pointers-in-each-node-ii)
 <!-- TOC END -->
@@ -519,6 +520,26 @@ class Solution {
         return (a.val == b.val) && isSame(a.left, b.right) && isSame(a.right, b.left);
     }
 }
+```
+
+## 102. Binary Tree level Order Traversal (medium)
+
+Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+
+**For example:**
+```
+Given binary tree [3,9,20,null,null,15,7],
+    3
+   / \
+  9  20
+    /  \
+   15   7
+return its level order traversal as:
+[
+  [3],
+  [9,20],
+  [15,7]
+]
 ```
 
 ## 116. Populating Next Right Pointers in Each Node
