@@ -8,3 +8,10 @@ q.remove()
 q.isEmpty()
 q.size()
 q.peek()
+
+
+## Array
+
+List<Node> l = new ArrayList<>();
+
+l.add();
