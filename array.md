@@ -1,3 +1,11 @@
+<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+- [Java](#java)
+  - [31.medium.next.permutation](#31mediumnextpermutation)
+  - [33. Search in Rotated Sorted Array](#33-search-in-rotated-sorted-array)
+<!-- TOC END -->
+
+
+
 # Java
 
 ## 31.medium.next.permutation
