@@ -1,3 +1,18 @@
+<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+- [Java](#java)
+  - [31.medium.next.permutation](#31mediumnextpermutation)
+  - [33. Search in Rotated Sorted Array](#33-search-in-rotated-sorted-array)
+  - [11. Container With Most Water (medium)](#11-container-with-most-water-medium)
+    - [Solution](#solution)
+  - [42. Trapping Rain Water (hard)](#42-trapping-rain-water-hard)
+    - [Solution](#solution-1)
+  - [78. Subsets (medium)](#78-subsets-medium)
+    - [Solution](#solution-2)
+  - [79. Word Search (medium)](#79-word-search-medium)
+    - [Solution](#solution-3)
+<!-- TOC END -->
+
+
 # Java
 
 ## 31.medium.next.permutation
@@ -191,3 +206,69 @@ class Solution {
     }
 }
 ```
+
+## 78. Subsets (medium)
+
+Given a set of distinct integers, nums, return all possible subsets (the power set).
+
+Note: The solution set must not contain duplicate subsets.
+
+**Example:**
+```
+Input: nums = [1,2,3]
+Output:
+[
+  [3],
+  [1],
+  [2],
+  [1,2,3],
+  [1,3],
+  [2,3],
+  [1,2],
+  []
+]
+```
+
+### Solution
+
+```Java
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> rst = new ArrayList<>();
+        int size = 1 << nums.length;
+        for (int i = 0; i < size; i ++ ) {
+            List<Integer> subset = new ArrayList<>();
+            for (int j = 0; j < nums.length; j ++ ) {
+                if (((i >> j) & 1) == 1)
+                    subset.add(nums[j]);
+            }
+            rst.add(subset);
+        }
+        return rst;
+    }
+}
+```
+
+## 79. Word Search (medium)
+
+Given a 2D board and a word, find if the word exists in the grid.
+
+The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
+**Example:**
+```
+board =
+[
+  ['A','B','C','E'],
+  ['S','F','C','S'],
+  ['A','D','E','E']
+]
+
+Given word = "ABCCED", return true.
+Given word = "SEE", return true.
+Given word = "ABCB", return false.
+```
+
+### Solution
+
+We could solve this by DFS.

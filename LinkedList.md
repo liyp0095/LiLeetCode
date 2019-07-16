@@ -4,6 +4,8 @@
     - [Solution](#solution)
   - [24. Swap Nodes in Pairs (medium)](#24-swap-nodes-in-pairs-medium)
     - [Solution](#solution-1)
+  - [61. Rotate List (medium)](#61-rotate-list-medium)
+    - [Solution](#solution-2)
 <!-- TOC END -->
 
 # Linked List
@@ -115,6 +117,77 @@ class Solution {
             p1 = p2;
             // System.out.println(p1.val);
         }
+
+        return rst.next;
+    }
+}
+```
+
+## 61. Rotate List (medium)
+
+Given a linked list, rotate the list to the right by k places, where k is non-negative.
+
+**Example 1:**
+```
+Input: 1->2->3->4->5->NULL, k = 2
+Output: 4->5->1->2->3->NULL
+Explanation:
+rotate 1 steps to the right: 5->1->2->3->4->NULL
+rotate 2 steps to the right: 4->5->1->2->3->NULL
+```
+**Example 2:**
+```
+Input: 0->1->2->NULL, k = 4
+Output: 2->0->1->NULL
+Explanation:
+rotate 1 steps to the right: 2->0->1->NULL
+rotate 2 steps to the right: 1->2->0->NULL
+rotate 3 steps to the right: 0->1->2->NULL
+rotate 4 steps to the right: 2->0->1->NULL
+```
+
+### Solution
+
+```Java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null || k == 0) {
+            return head;
+        }
+
+        ListNode rst = new ListNode(0);
+        ListNode p1 = head;
+        ListNode p2 = head;
+        for (int i = 0; i < k; i ++ ) {
+            if (p1.next != null) {
+                p1 = p1.next;
+            } else {
+                p1 = head;
+                // i+1 is the length of list
+                k = k % (i + 1);
+                i = -1;
+            }
+        }
+
+        if (p1 == p2)
+            return head;
+
+        while (p1.next != null) {
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        rst.next = p2.next;
+        p2.next = null;
+        p1.next = head;
 
         return rst.next;
     }
