@@ -121,3 +121,73 @@ class Solution {
     }
 }
 ```
+
+## 11. Container With Most Water (medium)
+
+Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+
+**example**
+
+```
+Input: [1,8,6,2,5,4,8,3,7]
+Output: 49
+```
+
+### Solution
+- 为什么从两边向中间走可以遍历所有情况？
+
+```Java
+class Solution {
+    public int maxArea(int[] height) {
+        int waterLevel = 0;
+        int rst = 0;
+
+        for (int i = 0, j = height.length - 1; i < j;) {
+            waterLevel = Math.min(height[i], height[j]);
+            rst = Math.max((j-i) * waterLevel, rst);
+            // System.out.println(rst);
+            if (height[i] > height[j]) {
+                j --;
+            } else {
+                i ++;
+            }
+        }
+
+        return rst;
+    }
+}
+```
+
+## 42. Trapping Rain Water (hard)
+
+Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
+
+**Example:**
+
+Input: [0,1,0,2,1,0,1,3,2,1,2,1]
+Output: 6
+
+### Solution
+
+```Java
+class Solution {
+    public int trap(int[] height) {
+        int waterLevel = 0;
+        int rst = 0;
+
+        for (int i = 0, j = height.length - 1; i < j;) {
+            waterLevel = Math.max(waterLevel, Math.min(height[i], height[j]));
+            // System.out.println(rst);
+            if (height[i] > height[j]) {
+                rst += Math.max(waterLevel - height[j], 0);
+                j --;
+            } else {
+                rst += Math.max(waterLevel - height[i], 0);
+                i ++;
+            }
+        }
+
+        return rst;
+    }
+}
+```
