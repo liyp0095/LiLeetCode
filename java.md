@@ -17,3 +17,13 @@ List<Node> l = new ArrayList<>();
 l.add();
 
 ## Map
+
+```java
+Map<String, Integer> m = new HashMap<>();
+
+m.put(key, value);
+m.isEmpty();
+m.remove(key);
+m.containsKey(key);
+m.containsValue(value);
+```
