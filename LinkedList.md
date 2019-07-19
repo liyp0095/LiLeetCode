@@ -6,6 +6,7 @@
     - [Solution](#solution-1)
   - [61. Rotate List (medium)](#61-rotate-list-medium)
     - [Solution](#solution-2)
+  - [82. Remove Duplicates from Sorted List II (medium)](#82-remove-duplicates-from-sorted-list-ii-medium)
 <!-- TOC END -->
 
 # Linked List
@@ -189,6 +190,55 @@ class Solution {
         p2.next = null;
         p1.next = head;
 
+        return rst.next;
+    }
+}
+```
+
+## 82. Remove Duplicates from Sorted List II (medium)
+
+Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
+
+**Example 1:**
+```
+Input: 1->2->3->3->4->4->5
+Output: 1->2->5
+```
+**Example 2:**
+```
+Input: 1->1->1->2->3
+Output: 2->3
+```
+
+```Java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode rst = new ListNode(0);
+        rst.next = head;
+        ListNode p1, p2;
+        p1 = rst;
+        p2 = rst.next;
+        while(p2 != null){
+            // System.out.println(p1.val);
+            if(p2.next != null && p2.val == p2.next.val){
+                while(p2.next != null && p2.val == p2.next.val){
+                    p2 = p2.next;
+                }
+                p1.next = p2.next;
+                p2 = p2.next;
+            } else{
+                p1 = p1.next;
+                p2 = p2.next;
+            }
+        }
         return rst.next;
     }
 }
