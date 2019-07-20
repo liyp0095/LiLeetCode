@@ -11,10 +11,14 @@ q.peek()
 
 
 ## Array
-
+```java
 List<Node> l = new ArrayList<>();
-
 l.add();
+
+int[] nums;
+nums.length;
+```
+
 
 ## Map
 

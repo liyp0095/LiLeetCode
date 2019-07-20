@@ -163,7 +163,34 @@ Output: [-1,-1]
 ### Solution
 
 ```java
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        int middle = 0;
+        int[] rst = {-1, -1};
 
+        while (left <= right) {
+            middle = Math.round((left + right) / 2);
+            if (target > nums[middle]) {
+                left = middle + 1;
+            } else if (target < nums[middle]) {
+                right = middle - 1;
+            } else {
+                while (middle > 0 && nums[middle-1] == nums[middle]) {
+                    middle -= 1;
+                }
+                rst[0] = middle;
+                while (middle < nums.length - 1 && nums[middle+1] == nums[middle]) {
+                    middle += 1;
+                }
+                rst[1] = middle;
+                return rst;
+            }
+        }
+        return rst;
+    }
+}
 ```
 
 
