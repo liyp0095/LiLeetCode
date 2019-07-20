@@ -22,6 +22,7 @@ l.add();
 Map<String, Integer> m = new HashMap<>();
 
 m.put(key, value);
+m.get(key);
 m.isEmpty();
 m.remove(key);
 m.containsKey(key);

@@ -1,16 +1,21 @@
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
 - [Java](#java)
   - [31.medium.next.permutation](#31mediumnextpermutation)
-  - [33. Search in Rotated Sorted Array](#33-search-in-rotated-sorted-array)
-  - [11. Container With Most Water (medium)](#11-container-with-most-water-medium)
     - [Solution](#solution)
-  - [42. Trapping Rain Water (hard)](#42-trapping-rain-water-hard)
+  - [33. Search in Rotated Sorted Array](#33-search-in-rotated-sorted-array)
     - [Solution](#solution-1)
-  - [78. Subsets (medium)](#78-subsets-medium)
+  - [34. Find First and Last Position of Element in Sorted Array (medium)](#34-find-first-and-last-position-of-element-in-sorted-array-medium)
     - [Solution](#solution-2)
-  - [79. Word Search (medium)](#79-word-search-medium)
+  - [11. Container With Most Water (medium)](#11-container-with-most-water-medium)
     - [Solution](#solution-3)
+  - [42. Trapping Rain Water (hard)](#42-trapping-rain-water-hard)
+    - [Solution](#solution-4)
+  - [78. Subsets (medium)](#78-subsets-medium)
+    - [Solution](#solution-5)
+  - [79. Word Search (medium)](#79-word-search-medium)
+    - [Solution](#solution-6)
 <!-- TOC END -->
+
 
 
 # Java
@@ -30,7 +35,7 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 1,1,5 → 1,5,1
 ```
 
-
+### Solution
 
 ```Java
 class Solution {
@@ -97,7 +102,7 @@ Output: 4
 Input: nums = [4,5,6,7,0,1,2], target = 3
 Output: -1
 ```
-
+### Solution
 ```java
 class Solution {
     public int search(int[] nums, int target) {
@@ -136,6 +141,31 @@ class Solution {
     }
 }
 ```
+
+## 34. Find First and Last Position of Element in Sorted Array (medium)
+
+Given an array of integers nums sorted in ascending order, find the starting and ending position of a given target value.
+
+Your algorithm's runtime complexity must be in the order of O(log n).
+
+If the target is not found in the array, return [-1, -1].
+
+**Example 1:**
+```
+Input: nums = [5,7,7,8,8,10], target = 8
+Output: [3,4]
+```
+**Example 2:**
+```
+Input: nums = [5,7,7,8,8,10], target = 6
+Output: [-1,-1]
+```
+### Solution
+
+```java
+
+```
+
 
 ## 11. Container With Most Water (medium)
 
