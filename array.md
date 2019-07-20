@@ -16,8 +16,6 @@
     - [Solution](#solution-6)
 <!-- TOC END -->
 
-
-
 # Java
 
 ## 31.medium.next.permutation
