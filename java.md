@@ -17,6 +17,8 @@ l.add();
 
 int[] nums;
 nums.length;
+
+
 ```
 
 
@@ -31,4 +33,15 @@ m.isEmpty();
 m.remove(key);
 m.containsKey(key);
 m.containsValue(value);
+```
+
+## Arrays
+
+```java
+int[] count = new int[20];
+Arrays.fill(count, 1);
+```
+
+## Collections
+```java 
 ```
