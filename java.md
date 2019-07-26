@@ -14,6 +14,8 @@ q.peek()
 ```java
 List<Node> l = new ArrayList<>();
 l.add();
+l.get(1);
+
 
 int[] nums;
 nums.length;
@@ -43,5 +45,5 @@ Arrays.fill(count, 1);
 ```
 
 ## Collections
-```java 
+```java
 ```
