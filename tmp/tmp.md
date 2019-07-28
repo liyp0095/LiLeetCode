@@ -19,7 +19,7 @@ Output:
 ### Solution
 
 - Arrays.fill(int[] a, 1);
-- ArrayList.size(), int[] a.length. 
+- ArrayList.size(), int[] a.length.
 
 ```Java
 class Solution {
@@ -49,4 +49,14 @@ class Solution {
         }
     }
 }
+```
+
+
+## 47. Permutations II (medium)
+
+Given a collection of distinct integers, return all unique possible permutations.
+
+### Solution ???
+
+```Java
 ```
