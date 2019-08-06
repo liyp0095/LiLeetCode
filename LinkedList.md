@@ -7,7 +7,11 @@
   - [61. Rotate List (medium)](#61-rotate-list-medium)
     - [Solution](#solution-2)
   - [82. Remove Duplicates from Sorted List II (medium)](#82-remove-duplicates-from-sorted-list-ii-medium)
+  - [83. Remove Duplicates from Sorted List (easy)](#83-remove-duplicates-from-sorted-list-easy)
+    - [Solution](#solution-3)
 <!-- TOC END -->
+
+
 
 # Linked List
 
@@ -210,6 +214,7 @@ Input: 1->1->1->2->3
 Output: 2->3
 ```
 
+### Solution 
 ```Java
 /**
  * Definition for singly-linked list.
@@ -240,6 +245,34 @@ class Solution {
             }
         }
         return rst.next;
+    }
+}
+```
+
+## 83. Remove Duplicates from Sorted List (easy)
+
+Given a sorted linked list, delete all duplicates such that each element appear only once.
+
+**Example 1:**
+```
+Input: 1->1->2
+Output: 1->2
+```
+
+### Solution
+
+```java
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode p = head;
+        while (p != null && p.next != null) {
+            if (p.val == p.next.val) {
+                p.next = p.next.next;
+            } else {
+                p = p.next;
+            }
+        }
+        return head;
     }
 }
 ```
