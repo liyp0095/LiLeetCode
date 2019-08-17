@@ -1,7 +1,8 @@
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
   - [13. Roman to Integer (easy)](#13-roman-to-integer-easy)
     - [Solution](#solution)
-  - [](#)
+  - [214. Shortest Palindrome (hard)](#214-shortest-palindrome-hard)
+    - [Solution](#solution-1)
 <!-- TOC END -->
 
 
@@ -46,4 +47,6 @@ class Solution {
 }
 ```
 
-##
+## 214. Shortest Palindrome (hard)
+
+### Solution 

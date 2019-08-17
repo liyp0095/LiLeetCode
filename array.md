@@ -18,6 +18,8 @@
     - [Solution ??](#solution--1)
   - [209. Minimum Size Subarray Sum (medium)](#209-minimum-size-subarray-sum-medium)
     - [Solution ??](#solution--2)
+  - [937. Reorder Log Files](#937-reorder-log-files)
+  - [Solution](#solution-6)
 <!-- TOC END -->
 
 
@@ -389,4 +391,10 @@ Return the final order of the logs.
 ```
 Input: ["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"]
 Output: ["g1 act car","a8 act zoo","ab1 off key dog","a1 9 2 3 1","zo4 4 7"]
+```
+
+## Solution
+
+```Java
+
 ```
