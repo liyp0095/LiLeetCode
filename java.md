@@ -10,7 +10,7 @@ q.size()
 q.peek()
 
 
-## Array
+## ArrayList
 ```java
 List<Node> l = new ArrayList<>();
 l.add();
@@ -21,6 +21,16 @@ int[] nums;
 nums.length;
 
 
+List<List<Integer>> res = new ArrayList<>();
+// List<List<Integer>> res = new ArrayList<ArrayList<Integer>>(); is wrong
+```
+
+## Set
+
+```Java
+Set s = new HashSet()
+s.add();
+s.remove();
 ```
 
 
@@ -47,4 +57,12 @@ Arrays.fill(count, 1);
 ## Collections
 ```java
 
+```
+
+## length, size
+
+```Java
+string.length()
+array.length
+arraylist.size()
 ```
